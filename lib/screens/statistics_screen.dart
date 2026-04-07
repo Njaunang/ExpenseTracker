@@ -279,7 +279,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                     ],
                                   ),
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                         ),
@@ -350,7 +350,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                     ],
                                   ),
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                         ),
