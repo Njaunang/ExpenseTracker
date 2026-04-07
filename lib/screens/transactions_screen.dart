@@ -50,7 +50,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       body: Consumer<TransactionProvider>(
         builder: (context, transactionProvider, child) {
           if (transactionProvider.isLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(color: Color(0xFF264444)),
+            );
           }
 
           var transactions = transactionProvider.filteredTransactions;
@@ -90,7 +92,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         _loadData();
                       }
                     },
-                    child: Text(AppLocalizations.of(context)!.addTransaction),
+                    child: Text(
+                      AppLocalizations.of(context)!.addTransaction,
+                      style: TextStyle(color: Color(0xFF264444)),
+                    ),
                   ),
                 ],
               ),

@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           msg: AppLocalizations.of(context)!.profileUpdateSuccess,
           backgroundColor: Colors.green,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
         setState(() {
           isEditing = false;
@@ -73,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           msg: AppLocalizations.of(context)!.profileUpdateFailed,
           backgroundColor: Colors.red,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
       }
     }

@@ -175,7 +175,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
             msg: AppLocalizations.of(context)!.userNotAuthenticated,
             backgroundColor: Colors.red,
             textColor: Colors.white,
-            fontSize: 12,
+            fontSize: 14,
           );
           Navigator.pop(context);
         }
@@ -189,7 +189,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
             msg: AppLocalizations.of(context)!.userIdNotFound,
             backgroundColor: Colors.red,
             textColor: Colors.white,
-            fontSize: 12,
+            fontSize: 14,
           );
         }
         return;
@@ -234,7 +234,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               : AppLocalizations.of(context)!.transactionUpdated,
           backgroundColor: Colors.green,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
         Navigator.pop(context, true);
       } else if (mounted) {
@@ -242,7 +242,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
           msg: AppLocalizations.of(context)!.failedToSaveTransaction,
           backgroundColor: Colors.red,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
       }
     }

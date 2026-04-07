@@ -45,7 +45,7 @@ class _SignupScreenState extends State<SignupScreen> {
           msg: AppLocalizations.of(context)!.signupSuccess,
           backgroundColor: Colors.green,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
         Navigator.pop(context);
       } else if (mounted) {
@@ -53,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
           msg: AppLocalizations.of(context)!.signupFailed,
           backgroundColor: Colors.red,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
       }
     }

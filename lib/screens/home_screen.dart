@@ -104,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Consumer<TransactionProvider>(
       builder: (context, transactionProvider, child) {
         if (transactionProvider.isLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(color: Color(0xFF264444)),
+          );
         }
 
         final balance = transactionProvider.balance;
@@ -292,6 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             child: Text(
                               AppLocalizations.of(context)!.addFirstTransaction,
+                              style: TextStyle(color: Color(0xFF264444)),
                             ),
                           ),
                         ],

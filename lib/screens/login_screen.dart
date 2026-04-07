@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           msg: AppLocalizations.of(context)!.loginSuccess,
           backgroundColor: Colors.green,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
         Navigator.pushReplacement(
           context,
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
           msg: AppLocalizations.of(context)!.loginFailed,
           backgroundColor: Colors.red,
           textColor: Colors.white,
-          fontSize: 12,
+          fontSize: 14,
         );
       }
     }

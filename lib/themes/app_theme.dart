@@ -25,6 +25,7 @@ class AppTheme {
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
       ),
+      labelStyle: TextStyle(color: Color(0xFF264444)),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: Colors.grey[200]!),
@@ -39,8 +40,8 @@ class AppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         minimumSize: const Size(double.infinity, 50),
-        foregroundColor: Colors.white,
-        backgroundColor: Color(0xFF264444),
+        // foregroundColor: Colors.white,
+        // backgroundColor: Color(0xFF264444),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -54,8 +55,15 @@ class AppTheme {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Color(0xFF264444),
       foregroundColor: Colors.white,
-
-      // elevation: 0,
+      elevation: 0,
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: SegmentedButton.styleFrom(
+        backgroundColor: Colors.grey,
+        foregroundColor: Colors.black,
+        selectedBackgroundColor: Color(0xFF264444),
+        selectedForegroundColor: Colors.white,
+      ),
     ),
   );
 
@@ -78,6 +86,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: const Color(0xFF2C2C2C),
+      labelStyle: TextStyle(color: Color(0xFF264444)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
@@ -99,8 +108,7 @@ class AppTheme {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Color(0xFF264444),
       foregroundColor: Colors.white,
-
-      // elevation: 0,
+      elevation: 0,
     ),
   );
 }

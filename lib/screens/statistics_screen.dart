@@ -59,7 +59,9 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
       body: Consumer<TransactionProvider>(
         builder: (context, transactionProvider, child) {
           if (transactionProvider.isLoading) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(color: Color(0xFF264444)),
+            );
           }
 
           final totalIncome = transactionProvider.totalIncome;
