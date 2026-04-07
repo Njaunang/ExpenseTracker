@@ -415,11 +415,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                   ),
                   Text(
                     'xaf: ${amount.toStringAsFixed(2)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: isBalance ? Colors.white : Colors.black,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ],
               ),
