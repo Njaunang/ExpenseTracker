@@ -395,7 +395,7 @@ abstract class AppLocalizations {
   /// No description provided for @en.
   ///
   /// In en, this message translates to:
-  /// **'An'**
+  /// **'En'**
   String get en;
 
   /// No description provided for @fr.

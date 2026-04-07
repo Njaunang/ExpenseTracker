@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFF264444).withValues(alpha: 0.1),
+                        color: Color(0xFF264444).withValues(alpha: 0.3),
                       ),
                       child: Column(
                         children: [
@@ -95,19 +95,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                       context,
                                     ).textTheme.bodyMedium,
                                   ),
+                                  CircleAvatar(
+                                    backgroundColor: Color(0xFF264444),
 
-                                  IconButton(
-                                    onPressed: () {
-                                      localProvider.setLocale(Locale('en'));
-                                    },
-                                    icon:
-                                        localProvider.locale.languageCode ==
-                                            'en'
-                                        ? Icon(
-                                            Icons.check_circle_rounded,
-                                            color: Colors.green,
-                                          )
-                                        : SizedBox(),
+                                    child: IconButton(
+                                      onPressed: () {
+                                        localProvider.setLocale(Locale('en'));
+                                      },
+                                      icon:
+                                          localProvider.locale.languageCode ==
+                                              'en'
+                                          ? Icon(
+                                              Icons.check_circle_rounded,
+                                              color: Colors.green,
+                                            )
+                                          : SizedBox(),
+                                    ),
                                   ),
                                 ],
                               );
@@ -127,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // height: 60,
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: Color(0xFF264444).withValues(alpha: 0.1),
+                        color: Color(0xFF264444).withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
@@ -142,18 +145,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                       context,
                                     ).textTheme.bodyMedium,
                                   ),
-                                  IconButton(
-                                    onPressed: () {
-                                      localProvider.setLocale(Locale('fr'));
-                                    },
-                                    icon:
-                                        localProvider.locale.languageCode ==
-                                            'fr'
-                                        ? Icon(
-                                            Icons.check_circle_rounded,
-                                            color: Colors.green,
-                                          )
-                                        : SizedBox(),
+                                  CircleAvatar(
+                                    backgroundColor: Color(0xFF264444),
+
+                                    child: IconButton(
+                                      onPressed: () {
+                                        localProvider.setLocale(Locale('fr'));
+                                      },
+                                      icon:
+                                          localProvider.locale.languageCode ==
+                                              'fr'
+                                          ? Icon(
+                                              Icons.check_circle_rounded,
+                                              color: Colors.green,
+                                            )
+                                          : SizedBox(),
+                                    ),
                                   ),
                                 ],
                               );

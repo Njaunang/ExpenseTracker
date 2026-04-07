@@ -156,7 +156,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get english => 'English';
 
   @override
-  String get en => 'An';
+  String get en => 'En';
 
   @override
   String get fr => 'Fr';
