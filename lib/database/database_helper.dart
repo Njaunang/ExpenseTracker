@@ -95,6 +95,11 @@ class DatabaseHelper {
     );
   }
 
+  Future<int> deleteUser(int id) async {
+    Database db = await database;
+    return await db.delete('users', where: 'id = ?', whereArgs: [id]);
+  }
+
   // Transaction CRUD operations
   Future<int> insertTransaction(Transaction transaction) async {
     Database db = await database;

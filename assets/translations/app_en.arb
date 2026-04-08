@@ -98,6 +98,10 @@
   "categoryInvestment":"Investment",
   "categorySalary":"Salary",
   "categoryGift":"Gift",
-  "categoryTravel":"Travel"
-  
+  "categoryTravel":"Travel",
+  "deleteTitle":"Delete Account",
+  "deleteButtonText":"Delete",
+  "deleteWarningText":"Are you sure you want to delete your account? This action cannot be undone. All your transactions and data will be permanently deleted.",
+  "successAccountDelete":"Account deleted successfully",
+  "failedAccountDelete":"Failed to delete account"
 }

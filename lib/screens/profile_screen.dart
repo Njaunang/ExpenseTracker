@@ -21,6 +21,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   final formKey = GlobalKey<FormState>();
   final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   String? avatarPath;
   bool isEditing = false;
   final ImagePicker picker = ImagePicker();
@@ -31,6 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     if (authProvider.currentUser != null) {
       usernameController.text = authProvider.currentUser!.username;
+      emailController.text = authProvider.currentUser!.email;
       avatarPath = authProvider.currentUser!.avatar;
     }
   }
@@ -55,6 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       bool success = await authProvider.updateProfile(
         usernameController.text.trim(),
+        emailController.text.trim(),
         avatarPath,
       );
 
@@ -103,6 +106,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
             child: Text(
               AppLocalizations.of(context)!.logout,
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _deleteUserAccount() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.deleteTitle),
+        content: Text(AppLocalizations.of(context)!.deleteWarningText),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(AppLocalizations.of(context)!.cancel),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              final authProvider = Provider.of<AuthProvider>(
+                context,
+                listen: false,
+              );
+              if (authProvider.currentUser != null) {
+                bool success = await authProvider.deleteUserAccount(
+                  authProvider.currentUser!.id!,
+                );
+                if (success && mounted) {
+                  Fluttertoast.showToast(
+                    msg: AppLocalizations.of(context)!.successAccountDelete,
+                    backgroundColor: Colors.green,
+                    textColor: Colors.white,
+                    fontSize: 14,
+                  );
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (_) => LoginScreen()),
+                    (route) => false,
+                  );
+                } else if (mounted) {
+                  Fluttertoast.showToast(
+                    msg: AppLocalizations.of(context)!.failedAccountDelete,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 14,
+                  );
+                }
+              }
+            },
+            child: Text(
+              AppLocalizations.of(context)!.deleteButtonText,
               style: TextStyle(color: Colors.red),
             ),
           ),
@@ -200,6 +259,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         return null;
                       },
                     ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        prefixIcon: Icon(Icons.email_rounded),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return AppLocalizations.of(context)!.emptyEmail;
+                        }
+                        if (!RegExp(
+                          r'[^@]+@[^@]+\.[^@]+',
+                        ).hasMatch(value.trim())) {
+                          return AppLocalizations.of(context)!.invalidEmail;
+                        }
+                        return null;
+                      },
+                    ),
                     const SizedBox(height: 20),
                     Row(
                       children: [
@@ -218,6 +299,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 isEditing = false;
                                 usernameController.text =
                                     authProvider.currentUser!.username;
+                                emailController.text =
+                                    authProvider.currentUser!.email;
                                 avatarPath = authProvider.currentUser!.avatar;
                               });
                             },
@@ -388,17 +471,61 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
 
             SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    // Logout section
+                    Text(
+                      AppLocalizations.of(context)!.logout,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    OutlinedButton.icon(
+                      onPressed: _logout,
+                      icon: Icon(Icons.login_rounded, color: Colors.red),
+                      label: Text(
+                        AppLocalizations.of(context)!.logout,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 12,
+                        ),
+                        side: const BorderSide(color: Colors.red),
+                      ),
+                    ),
+                  ],
+                ),
 
-            //Logout button
-            OutlinedButton.icon(
-              onPressed: _logout,
-              icon: Icon(Icons.login_rounded, color: Colors.red),
-              label: Text('Logout', style: TextStyle(color: Colors.red)),
-              style: OutlinedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                side: const BorderSide(color: Colors.red),
-              ),
+                Column(
+                  // Delete Account Section
+                  children: [
+                    Text(
+                      'Delete Account',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    OutlinedButton.icon(
+                      onPressed: _deleteUserAccount,
+                      icon: Icon(Icons.delete_rounded, color: Colors.red),
+                      label: Text(
+                        'Delete',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 12,
+                        ),
+                        side: const BorderSide(color: Colors.red),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

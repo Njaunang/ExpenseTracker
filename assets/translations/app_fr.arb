@@ -98,5 +98,10 @@
   "categoryInvestment":"Investisement",
   "categorySalary":"Salaire",
   "categoryGift":"Cadeau",
-  "categoryTravel":"Voyage"
+  "categoryTravel":"Voyage",
+  "deleteTitle":"Supprimer le compte",
+  "deleteButtonText":"Supprimer",
+  "deleteWarningText":"Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Toutes vos transactions et données seront définitivement supprimées.",
+  "successAccountDelete":"Compte supprimé avec succès",
+  "failedAccountDelete":"Impossible de supprimer le compte"
 }

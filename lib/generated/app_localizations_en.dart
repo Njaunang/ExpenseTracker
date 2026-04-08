@@ -306,4 +306,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categoryTravel => 'Travel';
+
+  @override
+  String get deleteTitle => 'Delete Account';
+
+  @override
+  String get deleteButtonText => 'Delete';
+
+  @override
+  String get deleteWarningText =>
+      'Are you sure you want to delete your account? This action cannot be undone. All your transactions and data will be permanently deleted.';
+
+  @override
+  String get successAccountDelete => 'Account deleted successfully';
+
+  @override
+  String get failedAccountDelete => 'Failed to delete account';
 }

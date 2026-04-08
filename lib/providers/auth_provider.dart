@@ -89,7 +89,11 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<bool> updateProfile(String username, String? avatarPath) async {
+  Future<bool> updateProfile(
+    String username,
+    String email,
+    String? avatarPath,
+  ) async {
     if (_currentUser == null) return false;
 
     _isLoading = true;
@@ -97,11 +101,29 @@ class AuthProvider extends ChangeNotifier {
 
     try {
       _currentUser!.username = username;
+      _currentUser!.email = email;
       _currentUser!.avatar = avatarPath;
       _currentUser!.updatedAt = DateTime.now();
 
       await _dbHelper.updateUser(_currentUser!);
 
+      _isLoading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _isLoading = false;
+      notifyListeners();
+      return false;
+    }
+  }
+
+  Future<bool> deleteUserAccount(int id) async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      await _dbHelper.deleteUser(id);
+      _currentUser = null; // Logout the user after deleting account
       _isLoading = false;
       notifyListeners();
       return true;

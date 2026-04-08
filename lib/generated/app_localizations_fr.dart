@@ -314,4 +314,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get categoryTravel => 'Voyage';
+
+  @override
+  String get deleteTitle => 'Supprimer le compte';
+
+  @override
+  String get deleteButtonText => 'Supprimer';
+
+  @override
+  String get deleteWarningText =>
+      'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Toutes vos transactions et données seront définitivement supprimées.';
+
+  @override
+  String get successAccountDelete => 'Compte supprimé avec succès';
+
+  @override
+  String get failedAccountDelete => 'Impossible de supprimer le compte';
 }

@@ -691,6 +691,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Travel'**
   String get categoryTravel;
+
+  /// No description provided for @deleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteTitle;
+
+  /// No description provided for @deleteButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteButtonText;
+
+  /// No description provided for @deleteWarningText.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account? This action cannot be undone. All your transactions and data will be permanently deleted.'**
+  String get deleteWarningText;
+
+  /// No description provided for @successAccountDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Account deleted successfully'**
+  String get successAccountDelete;
+
+  /// No description provided for @failedAccountDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete account'**
+  String get failedAccountDelete;
 }
 
 class _AppLocalizationsDelegate
