@@ -259,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Text(
-                        AppLocalizations.of(context)!.seeAll,
+                        '👁 ${AppLocalizations.of(context)!.seeAll}',
                         style: TextStyle(color: Color(0xFF264444)),
                       ),
                     ),
