@@ -70,7 +70,6 @@ class TransactionProvider extends ChangeNotifier {
     DateTime? endDate,
   }) async {
     _isLoading = true;
-    // notifyListeners();
 
     try {
       _transactions = await _db.getTransactionsByUser(
