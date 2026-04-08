@@ -118,14 +118,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.deleteTitle),
+        title: Text('⚠️ ${AppLocalizations.of(context)!.deleteTitle}'),
         content: Text(AppLocalizations.of(context)!.deleteWarningText),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text('✖ ${AppLocalizations.of(context)!.cancel}'),
           ),
           TextButton(
             onPressed: () async {
@@ -161,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               }
             },
             child: Text(
-              AppLocalizations.of(context)!.deleteButtonText,
+              '🗑️ ${AppLocalizations.of(context)!.deleteButtonText}',
               style: TextStyle(color: Colors.red),
             ),
           ),
@@ -419,7 +419,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             Expanded(
                               child: ListTile(
-                                leading: Icon(Icons.language_rounded),
+                                leading: Icon(
+                                  Icons.language_rounded,
+                                  color:
+                                      localeProvider.locale.languageCode == 'en'
+                                      ? Colors.green
+                                      : Colors.black,
+                                ),
                                 title: Text(
                                   AppLocalizations.of(context)!.english,
                                   style: TextStyle(
@@ -441,7 +447,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             Expanded(
                               child: ListTile(
-                                leading: Icon(Icons.language_rounded),
+                                leading: Icon(
+                                  Icons.language_rounded,
+                                  color:
+                                      localeProvider.locale.languageCode == 'fr'
+                                      ? Colors.green
+                                      : Colors.black,
+                                ),
                                 title: Text(
                                   AppLocalizations.of(context)!.french,
                                   style: TextStyle(

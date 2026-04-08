@@ -410,7 +410,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                       context: context,
                       builder: (context) => AlertDialog(
                         title: Text(
-                          AppLocalizations.of(context)!.deleteTransaction,
+                          '⚠️ ${AppLocalizations.of(context)!.deleteTransaction}',
                         ),
                         content: Text(AppLocalizations.of(context)!.areYouSure),
                         actions: [
@@ -418,14 +418,16 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                             onPressed: () {
                               Navigator.pop(context, false);
                             },
-                            child: Text(AppLocalizations.of(context)!.cancel),
+                            child: Text(
+                              '✖ ${AppLocalizations.of(context)!.cancel}',
+                            ),
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.pop(context, true);
                             },
                             child: Text(
-                              AppLocalizations.of(context)!.delete,
+                              '🗑️ ${AppLocalizations.of(context)!.delete}',
                               style: TextStyle(color: Colors.red),
                             ),
                           ),
