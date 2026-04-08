@@ -503,14 +503,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   // Delete Account Section
                   children: [
                     Text(
-                      'Delete Account',
+                      AppLocalizations.of(context)!.deleteTitle,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     OutlinedButton.icon(
                       onPressed: _deleteUserAccount,
                       icon: Icon(Icons.delete_rounded, color: Colors.red),
                       label: Text(
-                        'Delete',
+                        AppLocalizations.of(context)!.deleteButtonText,
                         style: TextStyle(color: Colors.red),
                       ),
                       style: OutlinedButton.styleFrom(
